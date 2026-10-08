@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Missouri Jahan — Logo Designer</title>
+  <meta name="description" content="Missouri Jahan — custom logos and visual identities designed to make your brand unforgettable." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #f8f3ec;
+      --paper: #fffdf9;
+      --ink: #201c1c;
+      --muted: #6f6763;
+      --line: rgba(32, 28, 28, 0.10);
+      --brown: #795b4a;
+      --brown-dark: #4f3b31;
+      --pink: #d8a8a8;
+      --pink-soft: #ead4d0;
+      --sand: #e9ddcf;
+      --shadow: 0 18px 50px rgba(57, 42, 31, 0.08);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; }
+
+    .cursor-glow {
+      position: fixed;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      pointer-events: none;
+      background: radial-gradient(circle, rgba(216,168,168,.20) 0%, rgba(216,168,168,0) 70%);
+      transform: translate(-50%, -50%);
+      z-index: 0;
+      opacity: 0;
+      transition: opacity .2s ease;
+    }
+
+    .shell {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(248, 243, 236, .80);
+      border-bottom: 1px solid rgba(32, 28, 28, .06);
+    }
+
+    .nav-inner {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: -.02em;
+    }
+
+    .mini-mj {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: var(--ink);
+      color: #fff;
+      font-family: "Playfair Display", serif;
+      font-size: 16px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(32,28,28,.14);
+    }
+
+    .mini-mj::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,.12));
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      transition: color .25s ease;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    .nav-cta {
+      border: 0;
+      background: var(--ink);
+      color: #fff;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .nav-cta:hover { transform: translateY(-2px); background: var(--brown-dark); }
+
+    section { padding: 110px 0; }
+
+    .hero {
+      min-height: calc(100vh - 76px);
+      display: grid;
+      place-items: center;
+      position: relative;
+      padding-top: 70px;
+      padding-bottom: 80px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.04fr .96fr;
+      gap: 68px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.45);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--pink);
+      box-shadow: 0 0 0 5px rgba(216,168,168,.15);
+    }
+
+    .hero-name {
+      font-family: "Caveat", cursive;
+      font-size: clamp(66px, 10vw, 122px);
+      line-height: .88;
+      margin: 24px 0 18px;
+      font-weight: 600;
+      letter-spacing: -.04em;
+      transform: rotate(-2deg);
+      transform-origin: left center;
+    }
+
+    .hero h1 {
+      max-width: 670px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(48px, 6vw, 79px);
+      line-height: .98;
+      letter-spacing: -.045em;
+      margin-bottom: 22px;
+    }
+
+    .hero-copy {
+      max-width: 600px;
+      color: var(--muted);
+      font-size: 18px;
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border-radius: 999px;
+      padding: 14px 20px;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+    }
+
+    .btn:hover { transform: translateY(-3px); }
+
+    .btn-primary {
+      background: var(--ink);
+      color: #fff;
+      box-shadow: 0 10px 26px rgba(32,28,28,.14);
+    }
+
+    .btn-primary:hover { background: var(--brown-dark); box-shadow: 0 16px 30px rgba(32,28,28,.18); }
+
+    .btn-secondary {
+      border-color: var(--line);
+      background: rgba(255,255,255,.42);
+    }
+
+    .btn-secondary:hover { background: #fff; }
+
+    .hero-art {
+      position: relative;
+      min-height: 530px;
+      display: grid;
+      place-items: center;
+    }
+
+    .art-card {
+      width: min(430px, 100%);
+      aspect-ratio: 4 / 5;
+      border-radius: 38px;
+      background:
+        radial-gradient(circle at 24% 15%, rgba(255,255,255,.9) 0 5%, transparent 26%),
+        linear-gradient(145deg, #f0e5d8, #e9d0cd);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      transform: rotate(3deg);
+    }
+
+    .art-card::before,
+    .art-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(.2px);
+    }
+
+    .art-card::before {
+      width: 260px;
+      height: 260px;
+      background: rgba(255,255,255,.24);
+      right: -70px;
+      top: -40px;
+    }
+
+    .art-card::after {
+      width: 180px;
+      height: 180px;
+      background: rgba(121,91,74,.10);
+      left: -50px;
+      bottom: -25px;
+    }
+
+    .brand-stamp {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      z-index: 2;
+    }
+
+    .brand-stamp-ring {
+      width: 245px;
+      height: 245px;
+      border: 1px solid rgba(32,28,28,.28);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .brand-stamp-ring::before {
+      content: "MISSOURI JAHAN · LOGO DESIGN · MISSOURI JAHAN · LOGO DESIGN ·";
+      position: absolute;
+      inset: 12px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-size: 9px;
+      letter-spacing: .25em;
+      color: rgba(32,28,28,.68);
+      border-radius: 50%;
+    }
+
+    .big-mj {
+      font-family: "Playfair Display", serif;
+      font-size: 84px;
+      font-weight: 700;
+      letter-spacing: -.12em;
+      position: relative;
+      z-index: 3;
+      transform: translateX(-6px);
+    }
+
+    .script-note {
+      position: absolute;
+      left: 11%;
+      top: 10%;
+      font-family: "Caveat", cursive;
+      font-size: 24px;
+      transform: rotate(-8deg);
+    }
+
+    .art-label {
+      position: absolute;
+      bottom: 24px;
+      left: 26px;
+      right: 26px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      color: rgba(32,28,28,.72);
+      z-index: 3;
+    }
+
+    .floating-card {
+      position: absolute;
+      background: rgba(255,253,249,.90);
+      border: 1px solid rgba(32,28,28,.08);
+      box-shadow: 0 15px 35px rgba(57,42,31,.12);
+      border-radius: 18px;
+      padding: 14px 16px;
+      backdrop-filter: blur(16px);
+      animation: float 4.8s ease-in-out infinite;
+      z-index: 5;
+    }
+
+    .floating-card.small {
+      left: 4%;
+      bottom: 14%;
+      animation-delay: -1.5s;
+    }
+
+    .floating-card.tiny {
+      right: 5%;
+      top: 16%;
+      animation-delay: -2.8s;
+    }
+
+    .fc-title {
+      font-size: 10px;
+      letter-spacing: .12em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .fc-value {
+      font-family: "Playfair Display", serif;
+      font-size: 21px;
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 42px;
+    }
+
+    .section-kicker {
+      color: var(--brown);
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: .13em;
+      margin-bottom: 9px;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(38px, 5vw, 60px);
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+
+    .section-lead {
+      max-width: 440px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+    }
+
+    .about-panel {
+      background: rgba(255,253,249,.64);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 34px;
+      box-shadow: 0 12px 30px rgba(57,42,31,.04);
+    }
+
+    .about-panel.big {
+      min-height: 330px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .about-panel p {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 590px;
+    }
+
+    .signature {
+      font-family: "Caveat", cursive;
+      font-size: 42px;
+      margin-top: 36px;
+      transform: rotate(-2deg);
+      display: inline-block;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .stat {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      min-height: 144px;
+    }
+
+    .stat strong {
+      font-family: "Playfair Display", serif;
+      font-size: 34px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .stat span { color: var(--muted); font-size: 13px; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .service-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      min-height: 210px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform .28s ease, box-shadow .28s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(216,168,168,.12);
+      right: -45px;
+      bottom: -45px;
+      transition: transform .35s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+    }
+
+    .service-card:hover::after { transform: scale(1.25); }
+
+    .service-num {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--brown);
+      letter-spacing: .12em;
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      border: 1px solid var(--line);
+      background: var(--cream);
+      font-family: "Playfair Display", serif;
+      font-size: 20px;
+    }
+
+    .service-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 21px;
+      line-height: 1.1;
+      max-width: 130px;
+    }
+
+    .portfolio-wrap {
+      background: var(--ink);
+      color: white;
+      border-radius: 40px;
+      padding: 40px;
+    }
+
+    .portfolio-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+
+    .portfolio-head .section-kicker { color: var(--pink); }
+    .portfolio-head .section-lead { color: rgba(255,255,255,.62); }
+
+    .filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .filter-btn {
+      border: 1px solid rgba(255,255,255,.14);
+      background: transparent;
+      color: rgba(255,255,255,.65);
+      padding: 10px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all .2s ease;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: #fff;
+      color: var(--ink);
+      border-color: #fff;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .project {
+      min-height: 280px;
+      border-radius: 24px;
+      padding: 22px;
+      display: flex;
+      align-items: end;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.08);
+      transition: transform .25s ease, opacity .25s ease;
+    }
+
+    .project:hover { transform: translateY(-5px); }
+
+    .project::before {
+      content: "";
+      position: absolute;
+      width: 210px;
+      height: 210px;
+      border-radius: 50%;
+      right: -60px;
+      top: -60px;
+      background: rgba(255,255,255,.17);
+    }
+
+    .project .project-bg {
+      position: absolute;
+      inset: 0;
+      opacity: .9;
+    }
+
+    .p1 .project-bg { background: linear-gradient(135deg,#dbc6ba,#f1e7dc); }
+    .p2 .project-bg { background: linear-gradient(135deg,#2b2828,#70635a); }
+    .p3 .project-bg { background: linear-gradient(135deg,#ead9c8,#d9adb1); }
+    .p4 .project-bg { background: linear-gradient(135deg,#c8b5a9,#eee4db); }
+    .p5 .project-bg { background: linear-gradient(135deg,#d3c9ba,#f5eee7); }
+    .p6 .project-bg { background: linear-gradient(135deg,#e1c1c4,#cab6b7); }
+
+    .project-logo {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      font-size: 40px;
+      letter-spacing: -.08em;
+      z-index: 2;
+    }
+
+    .project:nth-child(2) .project-logo { color: #fff; }
+    .project-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .project-name {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 3px;
+    }
+
+    .project-meta {
+      font-size: 11px;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      color: rgba(32,28,28,.64);
+    }
+
+    .project:nth-child(2) .project-meta { color: rgba(255,255,255,.6); }
+
+    .project.hide { display: none; }
+
+    .order-section {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .order-intro {
+      position: sticky;
+      top: 110px;
+    }
+
+    .order-intro p {
+      max-width: 470px;
+      color: var(--muted);
+      margin-top: 16px;
+      font-size: 17px;
+    }
+
+    .mini-note {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 14px 16px;
+      background: var(--pink-soft);
+      border-radius: 18px;
+      color: var(--brown-dark);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .form-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 30px;
+      box-shadow: 0 16px 40px rgba(57,42,31,.05);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .field.full { grid-column: 1 / -1; }
+
+    .field label {
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      border-radius: 14px;
+      padding: 13px 14px;
+      outline: none;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color: rgba(121,91,74,.65);
+      box-shadow: 0 0 0 4px rgba(121,91,74,.08);
+    }
+
+    .field textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .form-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .form-helper {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .success {
+      display: none;
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: #efe6dc;
+      color: var(--brown-dark);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .success.show { display: block; }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .step {
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+      position: relative;
+    }
+
+    .step::before {
+      content: "";
+      position: absolute;
+      top: -3px;
+      left: 0;
+      width: 44px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--pink);
+    }
+
+    .step-num {
+      font-family: "Playfair Display", serif;
+      font-size: 38px;
+      color: var(--brown);
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+
+    .step h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .step p { color: var(--muted); font-size: 14px; }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .quote {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 10px 24px rgba(57,42,31,.04);
+    }
+
+    .stars {
+      letter-spacing: .12em;
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    .quote p {
+      font-family: "Playfair Display", serif;
+      font-size: 20px;
+      line-height: 1.42;
+      margin-bottom: 22px;
+    }
+
+    .client {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--sand);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .client strong { font-size: 13px; display: block; }
+    .client span { color: var(--muted); font-size: 12px; }
+
+    .footer {
+      padding: 40px 0 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-main {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .footer-title {
+      font-family: "Playfair Display", serif;
+      font-size: 30px;
+      margin-bottom: 6px;
+    }
+
+    .footer-copy { color: var(--muted); }
+
+    .socials {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .socials a {
+      padding: 10px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      background: rgba(255,255,255,.35);
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .socials a:hover { transform: translateY(-2px); background: #fff; }
+
+    .footer-bottom {
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .floating-cta {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 30;
+      padding: 14px 18px;
+      background: var(--ink);
+      color: white;
+      border-radius: 999px;
+      box-shadow: 0 16px 34px rgba(32,28,28,.24);
+      font-size: 13px;
+      font-weight: 800;
+      transition: transform .25s ease, background .25s ease;
+    }
+
+    .floating-cta:hover { transform: translateY(-4px); background: var(--brown-dark); }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      .hero-grid,
+      .order-section,
+      .about-grid { grid-template-columns: 1fr; }
+      .hero-art { min-height: 460px; }
+      .order-intro { position: static; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-grid { grid-template-columns: repeat(2, 1fr); row-gap: 34px; }
+      .testimonials { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 700px) {
+      section { padding: 82px 0; }
+      .shell { width: min(100% - 24px, 1180px); }
+      .nav-inner { height: 68px; }
+      .nav-cta { padding: 10px 15px; font-size: 12px; }
+      .hero { min-height: auto; padding-top: 48px; }
+      .hero-grid { gap: 36px; }
+      .hero-name { font-size: 66px; }
+      .hero h1 { font-size: 46px; }
+      .hero-copy { font-size: 16px; }
+      .hero-art { min-height: 390px; }
+      .art-card { width: min(350px, 90vw); border-radius: 28px; }
+      .brand-stamp-ring { width: 205px; height: 205px; }
+      .big-mj { font-size: 68px; }
+      .floating-card.small { left: 0; bottom: 8%; }
+      .floating-card.tiny { right: 0; top: 8%; }
+      .section-head, .portfolio-head, .footer-main { align-items: flex-start; flex-direction: column; }
+      .portfolio-wrap { padding: 24px; border-radius: 28px; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .about-panel { padding: 25px; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .service-card { min-height: 185px; }
+      .process-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 440px) {
+      .brand span { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .hero-name { font-size: 58px; }
+      .hero h1 { font-size: 41px; }
+      .about-stats { grid-template-columns: 1fr; }
+      .floating-card { transform: scale(.88); transform-origin: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <header class="nav">
+    <div class="shell nav-inner">
+      <a class="brand" href="#top" aria-label="Missouri Jahan home">
+        <span class="mini-mj">MJ</span>
+        <span>Missouri Jahan</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#process">Process</a>
+      </nav>
+
+      <a class="nav-cta" href="#order">Start a project</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div class="reveal">
+          <span class="eyebrow">Independent logo designer</span>
+          <div class="hero-name">Missouri Jahan</div>
+          <h1>I turn ideas into identities.</h1>
+          <p class="hero-copy">
+            Custom logos and visual identities designed to make your brand unforgettable.
+            Thoughtful concepts, clean typography, and a little personality in every detail.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#order">Create My Logo <span>↗</span></a>
+            <a class="btn btn-secondary" href="#work">View My Work</a>
+          </div>
+        </div>
+
+        <div class="hero-art reveal">
+          <div class="floating-card tiny">
+            <div class="fc-title">Signature style</div>
+            <div class="fc-value">Bold × Soft</div>
+          </div>
+
+          <div class="art-card">
+            <div class="script-note">made with intention ✦</div>
+            <div class="brand-stamp">
+              <div class="brand-stamp-ring">
+                <div class="big-mj">MJ</div>
+              </div>
+            </div>
+            <div class="art-label">
+              <span>Brand identity</span>
+              <span>Est. 2026</span>
+            </div>
+          </div>
+
+          <div class="floating-card small">
+            <div class="fc-title">Currently creating</div>
+            <div class="fc-value">Pretty + purposeful</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">01 — About</div>
+            <h2 class="section-title">Small details.<br>Big identity.</h2>
+          </div>
+          <p class="section-lead">
+            Missouri is a creative logo designer who transforms simple ideas into memorable visual identities that feel clear, confident, and unmistakably yours.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-panel big reveal">
+            <p>
+              Great branding does more than look pretty. It tells people what a brand feels like before they read a single word.
+              My approach combines strategy, typography, shape, and personality to create logos that are easy to remember and hard to ignore.
+            </p>
+            <div class="signature">— Missouri</div>
+          </div>
+
+          <div class="about-stats reveal">
+            <div class="stat">
+              <strong>01</strong>
+              <span>Idea-first creative direction</span>
+            </div>
+            <div class="stat">
+              <strong>∞</strong>
+              <span>Iterations focused on the right details</span>
+            </div>
+            <div class="stat">
+              <strong>MJ</strong>
+              <span>A personal design signature</span>
+            </div>
+            <div class="stat">
+              <strong>100%</strong>
+              <span>Custom concepts — never one-size-fits-all</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">02 — Services</div>
+            <h2 class="section-title">Design, but make it yours.</h2>
+          </div>
+          <p class="section-lead">
+            Flexible creative support for founders, creators, student-led brands, small businesses, and fresh ideas.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="service-num">01</div>
+            <div class="service-icon">✦</div>
+            <h3>Logo Design</h3>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-num">02</div>
+            <div class="service-icon">◌</div>
+            <h3>Brand Identity</h3>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-num">03</div>
+            <div class="service-icon">◇</div>
+            <h3>Minimalist Logos</h3>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-num">04</div>
+            <div class="service-icon">⌁</div>
+            <h3>Social Media Branding</h3>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-num">05</div>
+            <div class="service-icon">Aa</div>
+            <h3>Custom Typography</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="shell">
+        <div class="portfolio-wrap reveal">
+          <div class="portfolio-head">
+            <div>
+              <div class="section-kicker">03 — Selected work</div>
+              <h2 class="section-title">A few ideas,<br>turned visual.</h2>
+            </div>
+            <p class="section-lead">
+              Concept studies made to show how one idea can become a full visual personality.
+            </p>
+          </div>
+
+          <div class="filters" role="tablist" aria-label="Portfolio filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="minimal">Minimal</button>
+            <button class="filter-btn" data-filter="luxury">Luxury</button>
+            <button class="filter-btn" data-filter="cute">Cute</button>
+            <button class="filter-btn" data-filter="business">Business</button>
+          </div>
+
+          <div class="portfolio-grid">
+            <article class="project p1" data-category="cute">
+              <div class="project-bg"></div>
+              <div class="project-logo">Pu</div>
+              <div class="project-copy">
+                <div class="project-name">Punaraya</div>
+                <div class="project-meta">Cute · lifestyle concept</div>
+              </div>
+            </article>
+
+            <article class="project p2" data-category="business">
+              <div class="project-bg"></div>
+              <div class="project-logo">N</div>
+              <div class="project-copy">
+                <div class="project-name">Nova</div>
+                <div class="project-meta">Business · modern mark</div>
+              </div>
+            </article>
+
+            <article class="project p3" data-category="cute">
+              <div class="project-bg"></div>
+              <div class="project-logo">B</div>
+              <div class="project-copy">
+                <div class="project-name">Bloom</div>
+                <div class="project-meta">Cute · floral identity</div>
+              </div>
+            </article>
+
+            <article class="project p4" data-category="luxury">
+              <div class="project-bg"></div>
+              <div class="project-logo">V</div>
+              <div class="project-copy">
+                <div class="project-name">Velora</div>
+                <div class="project-meta">Luxury · editorial identity</div>
+              </div>
+            </article>
+
+            <article class="project p5" data-category="minimal">
+              <div class="project-bg"></div>
+              <div class="project-logo">A</div>
+              <div class="project-copy">
+                <div class="project-name">Aura</div>
+                <div class="project-meta">Minimal · soft monogram</div>
+              </div>
+            </article>
+
+            <article class="project p6" data-category="business">
+              <div class="project-bg"></div>
+              <div class="project-logo">NX</div>
+              <div class="project-copy">
+                <div class="project-name">NEXA</div>
+                <div class="project-meta">Business · tech-forward</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="order">
+      <div class="shell order-section">
+        <div class="order-intro reveal">
+          <div class="section-kicker">04 — Start a project</div>
+          <h2 class="section-title">Tell me the idea.<br>I’ll shape it.</h2>
+          <p>
+            Share a few details about your brand and what you want it to feel like. This mini brief helps turn a rough idea into a clear creative direction.
+          </p>
+          <span class="mini-note">No design jargon needed. Just bring the idea.</span>
+        </div>
+
+        <form class="form-card reveal" id="briefForm">
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" placeholder="Missouri Jahan" required>
+            </div>
+
+            <div class="field">
+              <label for="brand">Brand name</label>
+              <input id="brand" name="brand" type="text" placeholder="Your brand" required>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required>
+            </div>
+
+            <div class="field">
+              <label for="type">Type of logo</label>
+              <select id="type" name="type">
+                <option>Wordmark</option>
+                <option>Monogram</option>
+                <option>Symbol / Icon</option>
+                <option>Combination mark</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="style">Preferred style</label>
+              <select id="style" name="style">
+                <option>Minimal</option>
+                <option>Luxury</option>
+                <option>Cute</option>
+                <option>Business</option>
+                <option>Bold / playful</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="colors">Color preference</label>
+              <input id="colors" name="colors" type="text" placeholder="Cream, brown, pink...">
+            </div>
+
+            <div class="field full">
+              <label for="idea">Tell me about your idea</label>
+              <textarea id="idea" name="idea" placeholder="What does your brand do? What should the logo feel like? Any symbols, letters, references or details you already have in mind?" required></textarea>
+            </div>
+          </div>
+
+          <div class="form-footer">
+            <div class="form-helper">Demo form — connect it to your email/form service when you publish.</div>
+            <button class="btn btn-primary" type="submit">Send My Brief <span>→</span></button>
+          </div>
+          <div class="success" id="successMsg">Brief captured ✦ In a real setup, this is where your form service would send the project details.</div>
+        </form>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">05 — Process</div>
+            <h2 class="section-title">From “what if?”<br>to “that’s it.”</h2>
+          </div>
+          <p class="section-lead">
+            A simple, collaborative process designed to keep the creative part exciting without making the project feel complicated.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <div class="step reveal">
+            <div class="step-num">01</div>
+            <h3>Share Your Idea</h3>
+            <p>Tell me what you’re building, who it’s for, and the feeling you want people to remember.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-num">02</div>
+            <h3>Concept & Sketch</h3>
+            <p>I explore directions, shapes, symbols, typography, and visual references.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-num">03</div>
+            <h3>Design & Refine</h3>
+            <p>We narrow down the strongest direction and polish the details until it feels right.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-num">04</div>
+            <h3>Final Logo</h3>
+            <p>You receive a finished identity ready to use across your brand touchpoints.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">06 — Kind words</div>
+            <h2 class="section-title">Made to be remembered.</h2>
+          </div>
+        </div>
+
+        <div class="testimonials">
+          <article class="quote reveal">
+            <div class="stars">★★★★★</div>
+            <p>“Missouri took a messy idea in my head and turned it into a logo that instantly felt like our brand.”</p>
+            <div class="client">
+              <div class="avatar">AN</div>
+              <div><strong>Aanya N.</strong><span>Founder · Bloom</span></div>
+            </div>
+          </article>
+
+          <article class="quote reveal">
+            <div class="stars">★★★★★</div>
+            <p>“The design feels premium without being overdone. It finally gave my small business a real identity.”</p>
+            <div class="client">
+              <div class="avatar">RK</div>
+              <div><strong>Riya K.</strong><span>Creator · Velora</span></div>
+            </div>
+          </article>
+
+          <article class="quote reveal">
+            <div class="stars">★★★★★</div>
+            <p>“What stood out most was the thought behind every choice. The final mark looks simple, but it feels very intentional.”</p>
+            <div class="client">
+              <div class="avatar">MS</div>
+              <div><strong>Meera S.</strong><span>Owner · Punaraya</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <div class="footer-main">
+        <div>
+          <div class="footer-title">Missouri Jahan</div>
+          <div class="footer-copy">Designing ideas into identities.</div>
+        </div>
+
+        <div class="socials">
+          <a href="#" aria-label="Instagram placeholder">Instagram ↗</a>
+          <a href="mailto:hello@missourijahan.design">Email ↗</a>
+          <a href="#" aria-label="Behance placeholder">Behance ↗</a>
+          <a href="#" aria-label="Dribbble placeholder">Dribbble ↗</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Missouri Jahan. All rights reserved.</span>
+        <span>Your Ideas. My Design.</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="floating-cta" href="#order">Start a Project ✦</a>
+
+  <script>
+    const glow = document.getElementById("cursorGlow");
+    window.addEventListener("mousemove", (e) => {
+      glow.style.left = e.clientX + "px";
+      glow.style.top = e.clientY + "px";
+      glow.style.opacity = "1";
+    });
+    window.addEventListener("mouseleave", () => glow.style.opacity = "0");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const projects = document.querySelectorAll(".project");
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        filterButtons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const filter = btn.dataset.filter;
+
+        projects.forEach((project) => {
+          const show = filter === "all" || project.dataset.category === filter;
+          project.classList.toggle("hide", !show);
+        });
+      });
+    });
+
+    const briefForm = document.getElementById("briefForm");
+    const successMsg = document.getElementById("successMsg");
+
+    briefForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      successMsg.classList.add("show");
+      successMsg.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      briefForm.reset();
+    });
+  </script>
+</body>
+</html>
